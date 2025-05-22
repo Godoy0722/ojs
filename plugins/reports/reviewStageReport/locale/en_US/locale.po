@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-10-01T00:00:00+00:00\n"
+"PO-Revision-Date: 2023-10-01T00:00:00+00:00\n"
+"Language: \n"
+
+msgid "plugins.reports.reviewStageReport.displayName"
+msgstr "Review Stage Report"
+
+msgid "plugins.reports.reviewStageReport.description"
+msgstr "This plugin generates a CSV report containing submissions currently in the review stage."
+
+msgid "plugins.reports.reviewStageReport.submissionId"
+msgstr "Submission ID"
+
+msgid "plugins.reports.reviewStageReport.submissionTitle"
+msgstr "Submission Title"
+
+msgid "plugins.reports.reviewStageReport.submissionDate"
+msgstr "Submission Date"
+
+msgid "plugins.reports.reviewStageReport.lastModified"
+msgstr "Last Modified"
+
+msgid "plugins.reports.reviewStageReport.section"
+msgstr "Section"
+
+msgid "plugins.reports.reviewStageReport.round"
+msgstr "Review Round"
+
+msgid "plugins.reports.reviewStageReport.status"
+msgstr "Review Status"
+
+msgid "plugins.reports.reviewStageReport.status.revisionsRequested"
+msgstr "Revisions Requested"
+
+msgid "plugins.reports.reviewStageReport.status.revisionsSubmitted"
+msgstr "Revisions Submitted"
+
+msgid "plugins.reports.reviewStageReport.status.resubmitForReview"
+msgstr "Resubmit for Review"
+
+msgid "plugins.reports.reviewStageReport.status.resubmittedForReview"
+msgstr "Resubmitted for Review"
+
+msgid "plugins.reports.reviewStageReport.status.sentToExternalReview"
+msgstr "Sent to External Review"
+
+msgid "plugins.reports.reviewStageReport.status.accepted"
+msgstr "Accepted"
+
+msgid "plugins.reports.reviewStageReport.status.declined"
+msgstr "Declined"
+
+msgid "plugins.reports.reviewStageReport.status.pendingReviewers"
+msgstr "Pending Reviewers"
+
+msgid "plugins.reports.reviewStageReport.status.pendingReviews"
+msgstr "Pending Reviews"
+
+msgid "plugins.reports.reviewStageReport.status.reviewsReady"
+msgstr "Reviews Ready"
+
+msgid "plugins.reports.reviewStageReport.status.reviewsCompleted"
+msgstr "Reviews Completed"
+
+msgid "plugins.reports.reviewStageReport.status.reviewsOverdue"
+msgstr "Reviews Overdue"
+
+msgid "plugins.reports.reviewStageReport.status.pendingRecommendations"
+msgstr "Pending Recommendations"
+
+msgid "plugins.reports.reviewStageReport.status.recommendationsReady"
+msgstr "Recommendations Ready"
+
+msgid "plugins.reports.reviewStageReport.status.recommendationsCompleted"
+msgstr "Recommendations Completed"
+
+msgid "plugins.reports.reviewStageReport.status.unknown"
+msgstr "Unknown Status"
