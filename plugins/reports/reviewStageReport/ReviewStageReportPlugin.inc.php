@@ -92,7 +92,7 @@ class ReviewStageReportPlugin extends ReportPlugin {
 			$sql = "
 				SELECT
 					s.submission_id AS submissionId,
-					COALESCE(psl.setting_value, ps.setting_value) AS submissionTitle,
+					COALESCE(psl.setting_value, psen.setting_value, ps.setting_value) AS submissionTitle,
 					DATE(s.date_submitted) AS submissionDate,
 					DATE(s.last_modified) AS lastModified,
 					p.section_id AS sectionId,
@@ -102,6 +102,7 @@ class ReviewStageReportPlugin extends ReportPlugin {
 				JOIN publications p ON p.publication_id = s.current_publication_id
 				LEFT JOIN publication_settings ps ON (ps.publication_id = p.publication_id AND ps.setting_name = ? AND ps.locale = '')
 				LEFT JOIN publication_settings psl ON (psl.publication_id = p.publication_id AND psl.setting_name = ? AND psl.locale = ?)
+				LEFT JOIN publication_settings psen ON (psen.publication_id = p.publication_id AND psen.setting_name = ? AND psen.locale = 'en_US')
 				JOIN (
 					SELECT submission_id, MAX(round) AS max_round
 					FROM review_rounds
@@ -117,6 +118,7 @@ class ReviewStageReportPlugin extends ReportPlugin {
 				'title',
 				'title',
 				$contextLocale,
+				'title',
 				WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
 				WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
 				(int)$contextId,
@@ -162,37 +164,37 @@ class ReviewStageReportPlugin extends ReportPlugin {
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 		switch ($statusId) {
 			case REVIEW_ROUND_STATUS_REVISIONS_REQUESTED:
-				return __('plugins.reports.reviewStageReport.status.revisionsRequested');
+				return __('editor.submission.roundStatus.revisionsRequested');
 			case REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED:
-				return __('plugins.reports.reviewStageReport.status.revisionsSubmitted');
+				return __('editor.submission.roundStatus.revisionsSubmitted');
 			case REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW:
-				return __('plugins.reports.reviewStageReport.status.resubmitForReview');
+				return __('editor.submission.roundStatus.resubmitForReview');
 			case REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED:
-				return __('plugins.reports.reviewStageReport.status.resubmittedForReview');
+				return __('editor.submission.roundStatus.submissionResubmitted');
 			case REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL:
-				return __('plugins.reports.reviewStageReport.status.sentToExternalReview');
+				return __('editor.submission.roundStatus.sentToExternal');
 			case REVIEW_ROUND_STATUS_ACCEPTED:
-				return __('plugins.reports.reviewStageReport.status.accepted');
+				return __('editor.submission.roundStatus.accepted');
 			case REVIEW_ROUND_STATUS_DECLINED:
-				return __('plugins.reports.reviewStageReport.status.declined');
+				return __('editor.submission.roundStatus.declined');
 			case REVIEW_ROUND_STATUS_PENDING_REVIEWERS:
-				return __('plugins.reports.reviewStageReport.status.pendingReviewers');
+				return __('editor.submission.roundStatus.pendingReviewers');
 			case REVIEW_ROUND_STATUS_PENDING_REVIEWS:
-				return __('plugins.reports.reviewStageReport.status.pendingReviews');
+				return __('editor.submission.roundStatus.pendingReviews');
 			case REVIEW_ROUND_STATUS_REVIEWS_READY:
-				return __('plugins.reports.reviewStageReport.status.reviewsReady');
+				return __('editor.submission.roundStatus.reviewsReady');
 			case REVIEW_ROUND_STATUS_REVIEWS_COMPLETED:
-				return __('plugins.reports.reviewStageReport.status.reviewsCompleted');
+				return __('editor.submission.roundStatus.reviewsCompleted');
 			case REVIEW_ROUND_STATUS_REVIEWS_OVERDUE:
-				return __('plugins.reports.reviewStageReport.status.reviewsOverdue');
+				return __('editor.submission.roundStatus.reviewOverdue');
 			case REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS:
-				return __('plugins.reports.reviewStageReport.status.pendingRecommendations');
+				return __('editor.submission.roundStatus.pendingRecommendations');
 			case REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY:
-				return __('plugins.reports.reviewStageReport.status.recommendationsReady');
+				return __('editor.submission.roundStatus.recommendationsReady');
 			case REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED:
-				return __('plugins.reports.reviewStageReport.status.recommendationsCompleted');
+				return __('editor.submission.roundStatus.recommendationsCompleted');
 			default:
-				return __('plugins.reports.reviewStageReport.status.unknown');
+				return __('submission.review.status.awaitingResponse');
 		}
 	}
 }
