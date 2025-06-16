@@ -37,8 +37,14 @@ class AuthorsProcessor
              *
              * By default, if an author doesn't have an email, the primary contact email will be used in its place.
              */
-            $givenName = $familyName = $emailAddress = null;
-            [$givenName, $familyName, $emailAddress, $affiliation] = array_map('trim', explode(',', $authorString));
+            $givenName = $familyName = $emailAddress = $affiliation = null;
+            $authorParts = array_map('trim', explode(',', $authorString, 4));
+
+            // Assign parts to variables, handling cases where some parts might be missing
+            $givenName = $authorParts[0] ?? null;
+            $familyName = $authorParts[1] ?? null;
+            $emailAddress = $authorParts[2] ?? null;
+            $affiliation = $authorParts[3] ?? null;
 
             if (empty($emailAddress)) {
                 $emailAddress = $contactEmail;
