@@ -144,7 +144,6 @@ interest one; interest two; another interest
 | coverImageAltText | No | Alt text for cover | Journal Cover | Required if cover image used |
 | galleyFilenames | No | Semicolon-separated files | doc.docx;data.xlsx | Optional |
 | galleyLabels | No | Labels for galleys | DOC;XLS | Must match galleyFilenames count |
-| genreName | No | Content type | Article Text | Must exist in system |
 | sectionTitle | No | Section name | Articles | Will be created if needed |
 | sectionAbbrev | No | Section abbreviation | ART | Used if section is created |
 | issueTitle | No | Issue title | Vol 1, No 1 (2024) | |

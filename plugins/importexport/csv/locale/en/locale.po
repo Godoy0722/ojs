@@ -85,9 +85,6 @@ msgstr "The cover image has an invalid format for this row."
 msgid "plugins.importexport.csv.erroWhileSavingBookCoverImage"
 msgstr "An error occurred while saving the book cover image."
 
-msgid "plugins.importexport.csv.noGenre"
-msgstr "There is no {$genreName} genre."
-
 msgid "plugins.importexport.csv.errorWhileSavingSubmissionFile"
 msgstr "An error occurred while saving the Submission file."
 
