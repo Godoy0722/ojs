@@ -166,20 +166,6 @@ class InvalidRowValidations
     }
 
     /**
-     * Validates if a genre exists for the name provided in the CSV row. Returns the reason if an error occurred
-     * or null if everything is correct.
-	 *
-	 * @param int|null $genreId
-	 * @param string $genreName
-	 *
-	 * @return string|null
-     */
-    public static function validateGenreIdValid($genreId, $genreName)
-    {
-        return !$genreId ? __('plugins.importexport.csv.noGenre', ['genreName' => $genreName]) : null;
-    }
-
-    /**
      * Validates if the user group ID is valid. Returns the reason if an error occurred
      * or null if everything is correct.
 	 *
