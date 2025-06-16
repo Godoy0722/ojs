@@ -160,15 +160,7 @@ class IssueCommand
                 }
 
                 // we need a Genre for the files.  Assume a key of SUBMISSION as a default.
-                $genreName = mb_strtoupper($data->genreName ?? 'SUBMISSION');
-                $genreId = CachedEntities::getCachedGenreId($genreName, $journal->getId());
-
-                $reason = InvalidRowValidations::validateGenreIdValid($genreId, $genreName);
-                if (!is_null($reason)) {
-                    CSVFileHandler::processFailedRow($invalidCsvFile, $fields, $this->expectedRowSize, $reason, $this->failedRows);
-                    continue;
-                }
-
+                $genreId = CachedEntities::getCachedGenreId($journal->getId());
                 $userGroupId = CachedEntities::getCachedUserGroupId($data->journalPath, $journal->getId());
 
                 $reason = InvalidRowValidations::validateUserGroupId($userGroupId, $data->journalPath);

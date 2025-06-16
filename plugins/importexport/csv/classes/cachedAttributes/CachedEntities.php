@@ -131,13 +131,13 @@ class CachedEntities
         return null;
     }
 
-    /** Retrieves a cached genre ID by genreName and journalId. Returns null if an error occurs. */
-    public static function getCachedGenreId(string $genreName, int $journalId): ?int
+    /** Retrieves a cached genre ID by journalId. Returns null if an error occurs. */
+    public static function getCachedGenreId(int $journalId): ?int
     {
         $genreDao = CachedDaos::getGenreDao();
-        $genre = $genreDao->getByKey($genreName, $journalId);
+        $genre = $genreDao->getByKey('SUBMISSION', $journalId);
 
-        return self::$genreIds[$genreName] ?? self::$genreIds[$genreName] = $genre->getId();
+        return self::$genreIds["SUBMISSION_{$journalId}"] ??= $genre->getId();
     }
 
     /** Retrieves a cached Category by categoryName and journalId. Returns null if an error occurs. */
