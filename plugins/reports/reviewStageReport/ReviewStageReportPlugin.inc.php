@@ -110,7 +110,7 @@ class ReviewStageReportPlugin extends ReportPlugin {
 					GROUP BY submission_id
 				) rrmax ON rrmax.submission_id = s.submission_id
 				JOIN review_rounds rr ON rr.submission_id = rrmax.submission_id AND rr.round = rrmax.max_round AND rr.stage_id = ?
-				WHERE s.context_id = ? AND s.stage_id = ?
+				WHERE s.context_id = ? AND s.stage_id = ? AND s.status NOT IN (3, 4)
 				ORDER BY s.submission_id
 			";
 			$contextLocale = $context->getPrimaryLocale() ?? '';
